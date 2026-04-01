@@ -13,40 +13,55 @@ function App() {
     "https://images.pexels.com/photos/29092945/pexels-photo-29092945.jpeg"
   ];
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setIndex((prev) => (prev + 1) % images.length);
-  }, 5000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
 
-  return () => clearInterval(interval);
-}, [images.length]);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
-  // 🔹 REVIEWS
+  // 🔹 REVIEWS (Firebase)
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
 
+  // 🔥 Fetch reviews from Firebase
+  const fetchReviews = async () => {
+    const querySnapshot = await getDocs(collection(db, "reviews"));
+
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push(doc.data());
+    });
+
+    setReviews(data);
+  };
+
+  // 🔥 Load reviews on start
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("reviews")) || [];
-    setReviews(saved);
+    fetchReviews();
   }, []);
 
-  const addReview = () => {
+  // 🔥 Add review to Firebase
+  const addReview = async () => {
     if (!name || !text || rating === 0) {
       alert("Please fill all fields!");
       return;
     }
 
-    const newReview = { name, text, rating };
-    const updated = [...reviews, newReview];
-
-    setReviews(updated);
-    localStorage.setItem("reviews", JSON.stringify(updated));
+    await addDoc(collection(db, "reviews"), {
+      name,
+      text,
+      rating
+    });
 
     setName("");
     setText("");
     setRating(0);
+
+    fetchReviews(); // refresh list
   };
 
   return (

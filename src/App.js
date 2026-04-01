@@ -27,24 +27,21 @@ function App() {
   const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
 
-  // 🔥 Fetch reviews from Firebase
+  // 🔥 Fetch reviews
   const fetchReviews = async () => {
     const querySnapshot = await getDocs(collection(db, "reviews"));
-
     const data = [];
     querySnapshot.forEach((doc) => {
       data.push(doc.data());
     });
-
     setReviews(data);
   };
 
-  // 🔥 Load reviews on start
   useEffect(() => {
     fetchReviews();
   }, []);
 
-  // 🔥 Add review to Firebase
+  // 🔥 Add review
   const addReview = async () => {
     if (!name || !text || rating === 0) {
       alert("Please fill all fields!");
@@ -61,7 +58,7 @@ function App() {
     setText("");
     setRating(0);
 
-    fetchReviews(); // refresh list
+    fetchReviews();
   };
 
   return (
@@ -70,8 +67,8 @@ function App() {
       {/* NAVBAR */}
       <nav>
         <div>
-          <h2 className="heading-ln-2">Henna by Bhumi</h2> 
-          <p className="heading-ln-1"> Using 100% Organic Mehndi</p>
+          <h2 className="heading-ln-2">Henna by Bhumi</h2>
+          <p className="heading-ln-1">Using 100% Organic Mehndi</p>
         </div>
         <div>
           <a href="/">Home</a>
@@ -136,25 +133,37 @@ function App() {
             placeholder="Write your review..."
           ></textarea>
 
+          {/* ⭐ Stars */}
           <div className="stars">
             {[1,2,3,4,5].map((star) => (
-              <i
+              <span
                 key={star}
-                className={`fa fa-star ${star <= rating ? "active" : ""}`}
                 onClick={() => setRating(star)}
-              ></i>
+                style={{
+                  cursor: "pointer",
+                  fontSize: "24px",
+                  color: star <= rating ? "gold" : "gray"
+                }}
+              >
+                ★
+              </span>
             ))}
           </div>
 
-          <button onClick={addReview} className="btn">Submit Review</button>
+          <button onClick={addReview} className="btn">
+            Submit Review
+          </button>
         </div>
 
+        {/* SHOW REVIEWS */}
         <div>
           {reviews.map((r, i) => (
             <div key={i} className="review-item">
               <strong>{r.name}</strong>
-              <p>{"⭐".repeat(r.rating)}</p>
               <p>{r.text}</p>
+              <p style={{ color: "gold" }}>
+                {"★".repeat(r.rating)}
+              </p>
             </div>
           ))}
         </div>

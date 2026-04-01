@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-
+import { db } from "./firebase";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
 function App() {
 
@@ -12,12 +13,13 @@ function App() {
     "https://images.pexels.com/photos/29092945/pexels-photo-29092945.jpeg"
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setIndex((prev) => (prev + 1) % images.length);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, [images.length]);
 
   // 🔹 REVIEWS
   const [name, setName] = useState("");
@@ -57,7 +59,7 @@ function App() {
           <p className="heading-ln-1"> Using 100% Organic Mehndi</p>
         </div>
         <div>
-          <a href="#">Home</a>
+          <a href="/">Home</a>
           <a href="#services">Services</a>
           <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>

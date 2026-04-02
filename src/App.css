@@ -139,6 +139,7 @@ nav a:hover::after{
   backdrop-filter:blur(10px);
   transition:0.4s;
   border:1px solid rgba(255,255,255,0.1);
+  cursor:pointer;
 }
 
 .card:hover{
@@ -146,7 +147,12 @@ nav a:hover::after{
   box-shadow:0 0 20px gold;
 }
 
-/* SLIDER */
+.card.active{
+  border:2px solid gold;
+  box-shadow:0 0 25px gold;
+}
+
+/* 🔥 IMAGE SLIDER */
 .slider{
   position:relative;
   max-width:800px;
@@ -158,18 +164,17 @@ nav a:hover::after{
 
 .slides{
   display:flex;
-  transition:0.7s ease-in-out;
+  transition: transform 0.8s ease-in-out;
 }
 
+/* 🔥 PERFECT IMAGE FIT */
 .slides img{
   width:100%;
+  height:400px;
+  object-fit:cover;
+  object-position:center;
   flex-shrink:0;
   border-radius:20px;
-  transition:0.5s;
-}
-
-.slides img:hover{
-  transform:scale(1.05);
 }
 
 /* BUTTONS */
@@ -205,14 +210,14 @@ nav a:hover::after{
   border:1px solid rgba(255,255,255,0.1);
 }
 
-.address {
-  text-decoration: none;
-  color: #333;
-  font-size: 18px;
+.address{
+  text-decoration:none;
+  color:#fff;
+  font-size:18px;
 }
 
-.address:hover {
-  color: green;
+.address:hover{
+  color:gold;
 }
 
 .contact-box p{
@@ -222,23 +227,23 @@ nav a:hover::after{
 /* WHATSAPP */
 .whatsapp{
   position:fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   bottom:20px;
   right:20px;
-  background:rgba(10, 255, 10, 0.733);
+  background:rgba(10,255,10,0.8);
   color:black;
-  padding:15px;
   border-radius:50%;
   text-decoration:none;
   font-size:20px;
-  height: 50px;
-  width: 50px;
-  box-shadow:0 0 15px rgb(1, 68, 1);
+  height:50px;
+  width:50px;
+  box-shadow:0 0 15px rgb(1,68,1);
 }
+
 .whatsapp:hover{
-  color: rgb(7, 82, 7);
+  transform:scale(1.1);
 }
 
 /* ANIMATION */
@@ -247,188 +252,112 @@ nav a:hover::after{
   to{opacity:1; transform:translateY(0);}
 }
 
-.review-box {
-  max-width: 500px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.review-box input,
-.review-box textarea {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-
-.stars {
-  display: flex;
-  gap: 10px;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.stars i {
-  color: gray;
-}
-
-.stars i.active {
-  color: gold;
-}
-
-.review-item {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.05);
-}
-
-/* 🔥 SERVICE CLICK EFFECT */
-.card {
-  cursor: pointer;
-}
-
-.card.active {
-  border: 2px solid gold;
-  box-shadow: 0 0 25px gold;
-  transform: scale(1.05);
-}
-
-/* 🔥 GALLERY IMAGE FIX (VERY IMPORTANT) */
-.slides img {
-  height: 400px;
-  object-fit: cover;
-}
-
-
-/* 🔥 MOBILE IMAGE FIX */
-@media (max-width: 700px) {
-  .slides img {
-    height: 250px;
-  }
-}
-
-/* REVIEW SECTION IMPROVED */
-.review-item {
-  max-width: 320px;
-  margin: 15px auto;
-  padding: 20px;
-  border-radius: 20px;
-
-  /* glass effect */
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  /* square card look */
-  min-height: 180px;
-
-  /* layout */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  transition: 0.4s;
-}
-
-/* hover effect */
-.review-item:hover {
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 0 20px gold;
-}
-
-/* name */
-.review-item strong {
-  font-size: 18px;
-  color: gold;
-  margin-bottom: 8px;
-}
-
-/* review text */
-.review-item p {
-  font-size: 14px;
-  color: #ddd;
-  line-height: 1.4;
-}
-
-/* stars spacing */
-.review-item p:last-child {
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-/* GRID LAYOUT (multiple reviews side by side) */
-.section .review-item {
-  display: inline-block;
-  vertical-align: top;
-  margin: 15px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 700px) {
-  .review-item {
-    width: 90%;
-    display: block;
-  }
-}
-
 /* ========================= */
-/* 🔥 REVIEW SLIDER FINAL FIX */
+/* 🔥 REVIEW SLIDER */
 /* ========================= */
 
-.review-slider {
-  max-width: 400px;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
+.review-slider{
+  max-width:400px;
+  margin:auto;
+  overflow:hidden;
+  position:relative;
+  border-radius:20px;
+  transition:0.4s;
 }
 
-/* track */
-.review-track {
-  display: flex;
+/* 🔥 FULL BOX HOVER */
+.review-slider:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px gold;
+}
+
+/* TRACK */
+.review-track{
+  display:flex;
   transition: transform 0.6s ease-in-out;
 }
 
-/* each slide */
-.review-slider .review-item {
-  min-width: 100%;
-  flex-shrink: 0;
+/* EACH REVIEW */
+.review-item{
+  min-width:100%;
+  flex-shrink:0;
+  padding:20px;
+  border-radius:20px;
 
-  /* override old styles */
-  display: flex !important;
-  margin: 0 auto !important;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  min-height:180px;
 }
 
-/* REMOVE GRID EFFECT (override) */
-.section .review-item {
-  display: block !important;
+/* TEXT */
+.review-item strong{
+  font-size:18px;
+  color:gold;
+  margin-bottom:8px;
+}
+
+.review-item p{
+  font-size:14px;
+  color:#ddd;
+  line-height:1.4;
 }
 
 /* DOTS */
-.dots {
-  margin-top: 15px;
-  text-align: center;
+.dots{
+  margin-top:15px;
+  text-align:center;
 }
 
-.dot {
-  height: 10px;
-  width: 10px;
-  background: gray;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+.dot{
+  height:10px;
+  width:10px;
+  background:gray;
+  border-radius:50%;
+  display:inline-block;
+  margin:5px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-.dot.active {
-  background: gold;
-  transform: scale(1.2);
+.dot.active{
+  background:gold;
+  transform:scale(1.2);
 }
 
+/* 🔥 MOBILE */
+@media (max-width:700px){
+
+  nav{
+    padding:15px;
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .slides img{
+    height:250px;
+  }
+
+  .section{
+    padding:50px 20px;
+  }
+
+  .card{
+    width:90%;
+  }
+
+  .review-slider{
+    width:90%;
+  }
+}
 /* ============================= */
 /* MOBILE RESPONSIVE MEDIA QUERY */
 /* ============================= */

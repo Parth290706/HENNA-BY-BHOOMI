@@ -4,19 +4,41 @@ import "./App.css";
 function App() {
   // 🔹 SLIDER
   const [index, setIndex] = useState(0);
-  const images = [
-    "https://images.pexels.com/photos/32004559/pexels-photo-32004559.jpeg",
-    "https://images.pexels.com/photos/32010609/pexels-photo-32010609.jpeg",
-    "https://images.pexels.com/photos/29092945/pexels-photo-29092945.jpeg",
-  ];
 
+  // 🔥 CATEGORY STATE
+  const [category, setCategory] = useState("bridal");
+
+  // 🔥 CATEGORY IMAGES
+  const allImages = {
+    bridal: [
+      "https://images.pexels.com/photos/1050484/pexels-photo-1050484.jpeg",
+      "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg"
+    ],
+    party: [
+      "https://images.pexels.com/photos/2062061/pexels-photo-2062061.jpeg",
+      "https://images.pexels.com/photos/1050484/pexels-photo-1050484.jpeg"
+    ],
+    home: [
+      "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg",
+      "https://images.pexels.com/photos/2062061/pexels-photo-2062061.jpeg"
+    ]
+  };
+
+  const images = allImages[category];
+
+  // 🔁 AUTO SLIDE
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images]);
+
+  // 🔥 RESET WHEN CATEGORY CHANGE
+  useEffect(() => {
+    setIndex(0);
+  }, [category]);
 
   return (
     <div>
@@ -37,21 +59,61 @@ function App() {
       {/* HERO */}
       <div className="hero">
         <div>
-          <h1 className="heading-ln-2">Elegant Mehndi Artist</h1>
+          <h1 className="heading-ln-2">PROFESSIONAL MEHNDI ARTIST</h1>
           <p>Bridal • Party • Arabic Designs</p>
-          <a href="#contact" className="btn">
-            Book Now
-          </a>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              marginTop: "15px",
+              justifyContent: "center",
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <a href="#contact" className="btn">
+              Book Now
+            </a>
+
+            <a
+              href="https://www.instagram.com/bhumi_bridal.mehndi?utm_source=qr&igsh=Yjh0ajRpOXN6MG1s"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ backgroundColor: "#E1306C" }}
+            >
+              More Info
+            </a>
+          </div>
         </div>
       </div>
 
       {/* SERVICES */}
       <div className="section" id="services">
         <h2>Our Services</h2>
+
         <div className="services">
-          <div className="card">💍 Bridal Mehndi</div>
-          <div className="card">🎉 Party Mehndi</div>
-          <div className="card">🏠 Home Service</div>
+          <div
+            className={`card ${category === "bridal" ? "active" : ""}`}
+            onClick={() => setCategory("bridal")}
+          >
+            💍 Bridal Mehndi
+          </div>
+
+          <div
+            className={`card ${category === "party" ? "active" : ""}`}
+            onClick={() => setCategory("party")}
+          >
+            🎉 Party Mehndi
+          </div>
+
+          <div
+            className={`card ${category === "home" ? "active" : ""}`}
+            onClick={() => setCategory("home")}
+          >
+            🏠 Home Service
+          </div>
         </div>
       </div>
 
@@ -62,66 +124,87 @@ function App() {
         <div className="slider">
           <div
             className="slides"
-            style={{ transform: `translateX(-${index * 100}%)` }}
+            style={{
+              transform: `translateX(-${index * 100}%)`,
+            }}
           >
             {images.map((img, i) => (
-              <img key={i} src={img} alt="mehndi" />
+              <img
+                key={i}
+                src={img}
+                alt="mehndi"
+                onError={(e) =>
+                  (e.target.src = "https://via.placeholder.com/400")
+                }
+              />
             ))}
           </div>
 
-          <button className="prev" onClick={() => setIndex(index - 1)}>
+          <button
+            className="prev"
+            onClick={() =>
+              setIndex((prev) =>
+                prev === 0 ? images.length - 1 : prev - 1
+              )
+            }
+          >
             ❮
           </button>
-          <button className="next" onClick={() => setIndex(index + 1)}>
+
+          <button
+            className="next"
+            onClick={() =>
+              setIndex((prev) => (prev + 1) % images.length)
+            }
+          >
             ❯
           </button>
         </div>
       </div>
 
       {/* CONTACT */}
-<div className="section" id="contact">
-  <h2>Contact</h2>
+      <div className="section" id="contact">
+        <h2>Contact</h2>
 
-  <div className="contact-box">
+        <div className="contact-box">
+          <p>
+            <a className="address" href="tel:+916353853077">
+              📞 +91 6353853077
+            </a>
+          </p>
 
-    {/* 📞 CALL */}
-    <p>
-      <a 
-        className="address" 
-        href="tel:+916353853077"
-      >
-        📞 +91 6353853077
-      </a>
-    </p>
+          <p>
+            <a
+              className="address"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=parthsutariya290706@gmail.com&su=Mehndi%20Booking&body=I%20want%20to%20book%20mehndi%20from%20you"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📧 parthsutariya290706@gmail.com
+            </a>
+          </p>
 
-    {/* 📧 EMAIL */}
-    <p>
-      <a 
-        className="address" 
-        href="mailto:parthsutariya290706@gmail.com?subject=Mehndi Booking&body=I want to book mehndi from you"
-      >
-        📧 parthsutariya290706@gmail.com
-      </a>
-    </p>
+          <p>
+            <a
+              className="address"
+              href="https://www.google.com/maps?q=Hamburg+Germany"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              📍 Hamburg, Germany
+            </a>
+          </p>
+        </div>
+      </div>
 
-    {/* 📍 LOCATION */}
-    <p>
-      <a 
-        className="address" 
-        href="https://www.google.com/maps?q=Hamburg+City+Germany"
+      {/* WHATSAPP BUTTON */}
+      <a
+        href="https://wa.me/918799399742?text=I%20want%20to%20book%20mehndi"
         target="_blank"
         rel="noopener noreferrer"
+        className="whatsapp"
       >
-        📍 Hamburg, Germany
-      </a>
-    </p>
-
-  </div>
-</div>
-
-      {/* WHATSAPP */}
-      <a href="https://wa.me/918799399742" className="whatsapp">
-        🟢
+        <i className="fa-brands fa-whatsapp"></i>
       </a>
     </div>
   );

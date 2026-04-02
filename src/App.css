@@ -285,6 +285,30 @@ nav a:hover::after{
   background: rgba(255,255,255,0.05);
 }
 
+/* 🔥 SERVICE CLICK EFFECT */
+.card {
+  cursor: pointer;
+}
+
+.card.active {
+  border: 2px solid gold;
+  box-shadow: 0 0 25px gold;
+  transform: scale(1.05);
+}
+
+/* 🔥 GALLERY IMAGE FIX (VERY IMPORTANT) */
+.slides img {
+  height: 400px;
+  object-fit: cover;
+}
+
+/* 🔥 MOBILE IMAGE FIX */
+@media (max-width: 700px) {
+  .slides img {
+    height: 250px;
+  }
+}
+
 /* ============================= */
 /* MOBILE RESPONSIVE MEDIA QUERY */
 /* ============================= */

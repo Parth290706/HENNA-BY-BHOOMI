@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { db } from "./firebase";
-import { collection, addDoc, getDocs } from "firebase/firestore";
 
 function App() {
-
   // 🔹 SLIDER
   const [index, setIndex] = useState(0);
   const images = [
     "https://images.pexels.com/photos/32004559/pexels-photo-32004559.jpeg",
     "https://images.pexels.com/photos/32010609/pexels-photo-32010609.jpeg",
-    "https://images.pexels.com/photos/29092945/pexels-photo-29092945.jpeg"
+    "https://images.pexels.com/photos/29092945/pexels-photo-29092945.jpeg",
   ];
 
   useEffect(() => {
@@ -48,22 +45,26 @@ function App() {
       return;
     }
 
-    await addDoc(collection(db, "reviews"), {
-      name,
-      text,
-      rating
-    });
+    const newReview = { name, text, rating };
 
+    // 🔥 UI तुरंत update
+    setReviews((prev) => [...prev, newReview]);
+
+    // 🔥 Firebase में save
+    await addDoc(collection(db, "reviews"), newReview);
+
+    // 🔥 FORM CLEAR
     setName("");
     setText("");
     setRating(0);
-
-    fetchReviews();
   };
+  // 🔥 REFRESH AFTER DELAY
+  setTimeout(() => {
+    fetchReviews();
+  }, 300);
 
   return (
     <div>
-
       {/* NAVBAR */}
       <nav>
         <div>
@@ -83,7 +84,9 @@ function App() {
         <div>
           <h1 className="heading-ln-2">Elegant Mehndi Artist</h1>
           <p>Bridal • Party • Arabic Designs</p>
-          <a href="#contact" className="btn">Book Now</a>
+          <a href="#contact" className="btn">
+            Book Now
+          </a>
         </div>
       </div>
 
@@ -111,8 +114,12 @@ function App() {
             ))}
           </div>
 
-          <button className="prev" onClick={() => setIndex(index - 1)}>❮</button>
-          <button className="next" onClick={() => setIndex(index + 1)}>❯</button>
+          <button className="prev" onClick={() => setIndex(index - 1)}>
+            ❮
+          </button>
+          <button className="next" onClick={() => setIndex(index + 1)}>
+            ❯
+          </button>
         </div>
       </div>
 
@@ -135,14 +142,14 @@ function App() {
 
           {/* ⭐ Stars */}
           <div className="stars">
-            {[1,2,3,4,5].map((star) => (
+            {[1, 2, 3, 4, 5].map((star) => (
               <span
                 key={star}
                 onClick={() => setRating(star)}
                 style={{
                   cursor: "pointer",
                   fontSize: "24px",
-                  color: star <= rating ? "gold" : "gray"
+                  color: star <= rating ? "gold" : "gray",
                 }}
               >
                 ★
@@ -150,7 +157,11 @@ function App() {
             ))}
           </div>
 
-          <button onClick={addReview} className="btn">
+          <button
+            onClick={addReview}
+            className="btn"
+            disabled={!name || !text || rating === 0}
+          >
             Submit Review
           </button>
         </div>
@@ -161,9 +172,7 @@ function App() {
             <div key={i} className="review-item">
               <strong>{r.name}</strong>
               <p>{r.text}</p>
-              <p style={{ color: "gold" }}>
-                {"★".repeat(r.rating)}
-              </p>
+              <p style={{ color: "gold" }}>{"★".repeat(r.rating)}</p>
             </div>
           ))}
         </div>
@@ -190,7 +199,6 @@ function App() {
       <a href="https://wa.me/918799399742" className="whatsapp">
         🟢
       </a>
-
     </div>
   );
 }

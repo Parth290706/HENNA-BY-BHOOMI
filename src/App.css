@@ -205,9 +205,14 @@ nav a:hover::after{
   border:1px solid rgba(255,255,255,0.1);
 }
 
-.address{
-   text-decoration: none;
-   color: white;
+.address {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+}
+
+.address:hover {
+  color: green;
 }
 
 .contact-box p{

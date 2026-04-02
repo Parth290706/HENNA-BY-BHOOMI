@@ -1,32 +1,44 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-function App() {
-  // 🔹 SLIDER
-  const [index, setIndex] = useState(0);
+/* 🔥 IMPORT YOUR LOCAL IMAGES */
+import bridal1 from "./components/bridal1.jpeg";
+import bridal2 from "./components/bridal2.jpeg";
 
-  // 🔥 CATEGORY STATE
+import party1 from "./components/party1.jpeg";
+import party2 from "./components/party2.jpeg";
+
+import home1 from "./components/home1.jpeg";
+import home2 from "./components/home2.jpeg";
+
+function App() {
+  // 🔥 REVIEWS
+  const reviews = [
+    { name: "Riya Patel", text: "Amazing bridal mehndi design 😍 very detailed work!" },
+    { name: "Neha Sharma", text: "Very professional and friendly service ❤️" },
+    { name: "Pooja Mehta", text: "Designs are unique and beautiful 👌 highly recommend!" },
+    { name: "Kajal Singh", text: "Best mehndi artist in town 💯 loved it!" },
+    { name: "Anjali Verma", text: "Such neat and clean mehndi work 😍 perfect design!" },
+    { name: "Sneha Gupta", text: "Very fast service and beautiful designs ❤️" },
+    { name: "Priya Desai", text: "Bhumi is very talented 🙌 bridal mehndi was amazing!" },
+    { name: "Komal Yadav", text: "Highly recommended 👍 long-lasting mehndi!" },
+  ];
+
+  // 🔹 STATES
+  const [index, setIndex] = useState(0);
+  const [reviewIndex, setReviewIndex] = useState(0);
   const [category, setCategory] = useState("bridal");
 
-  // 🔥 CATEGORY IMAGES
+  // 🔥 LOCAL IMAGES
   const allImages = {
-    bridal: [
-      "https://images.pexels.com/photos/1050484/pexels-photo-1050484.jpeg",
-      "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg"
-    ],
-    party: [
-      "https://images.pexels.com/photos/2062061/pexels-photo-2062061.jpeg",
-      "https://images.pexels.com/photos/1050484/pexels-photo-1050484.jpeg"
-    ],
-    home: [
-      "https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg",
-      "https://images.pexels.com/photos/2062061/pexels-photo-2062061.jpeg"
-    ]
+    bridal: [bridal1, bridal2],
+    party: [party1, party2],
+    home: [home1, home2],
   };
 
   const images = allImages[category];
 
-  // 🔁 AUTO SLIDE
+  // 🔁 IMAGE AUTO SLIDER
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -35,7 +47,16 @@ function App() {
     return () => clearInterval(interval);
   }, [images]);
 
-  // 🔥 RESET WHEN CATEGORY CHANGE
+  // 🔁 REVIEW AUTO SLIDER
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setReviewIndex((prev) => (prev + 1) % reviews.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [reviews.length]);
+
+  // 🔁 RESET IMAGE ON CATEGORY CHANGE
   useEffect(() => {
     setIndex(0);
   }, [category]);
@@ -50,8 +71,8 @@ function App() {
         </div>
         <div>
           <a href="/">Home</a>
+          <a href="#reviews">Reviews</a>
           <a href="#services">Services</a>
-          <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </div>
       </nav>
@@ -62,22 +83,11 @@ function App() {
           <h1 className="heading-ln-2">PROFESSIONAL MEHNDI ARTIST</h1>
           <p>Bridal • Party • Arabic Designs</p>
 
-          <div
-            style={{
-              display: "flex",
-              gap: "15px",
-              marginTop: "15px",
-              justifyContent: "center",
-              alignItems: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            <a href="#contact" className="btn">
-              Book Now
-            </a>
+          <div style={{ display: "flex", gap: "15px", marginTop: "15px", justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="#contact" className="btn">Book Now</a>
 
             <a
-              href="https://www.instagram.com/bhumi_bridal.mehndi?utm_source=qr&igsh=Yjh0ajRpOXN6MG1s"
+              href="https://www.instagram.com/bhumi_bridal.mehndi"
               target="_blank"
               rel="noopener noreferrer"
               className="btn"
@@ -94,33 +104,22 @@ function App() {
         <h2>Our Services</h2>
 
         <div className="services">
-          <div
-            className={`card ${category === "bridal" ? "active" : ""}`}
-            onClick={() => setCategory("bridal")}
-          >
+          <div className={`card ${category === "bridal" ? "active" : ""}`} onClick={() => setCategory("bridal")}>
             💍 Bridal Mehndi
           </div>
 
-          <div
-            className={`card ${category === "party" ? "active" : ""}`}
-            onClick={() => setCategory("party")}
-          >
+          <div className={`card ${category === "party" ? "active" : ""}`} onClick={() => setCategory("party")}>
             🎉 Party Mehndi
           </div>
 
-          <div
-            className={`card ${category === "home" ? "active" : ""}`}
-            onClick={() => setCategory("home")}
-          >
+          <div className={`card ${category === "home" ? "active" : ""}`} onClick={() => setCategory("home")}>
             🏠 Home Service
           </div>
         </div>
       </div>
 
-      {/* GALLERY */}
-      <div className="section" id="gallery">
-        <h2>Gallery</h2>
-
+      {/* 🔥 IMAGE SLIDER (LEFT-RIGHT ANIMATION) */}
+      <div style={{ marginTop: "-40px" }}>
         <div className="slider">
           <div
             className="slides"
@@ -129,23 +128,15 @@ function App() {
             }}
           >
             {images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt="mehndi"
-                onError={(e) =>
-                  (e.target.src = "https://via.placeholder.com/400")
-                }
-              />
+              <img key={i} src={img} alt="mehndi" />
             ))}
           </div>
 
+          {/* BUTTONS BACK */}
           <button
             className="prev"
             onClick={() =>
-              setIndex((prev) =>
-                prev === 0 ? images.length - 1 : prev - 1
-              )
+              setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
             }
           >
             ❮
@@ -159,6 +150,39 @@ function App() {
           >
             ❯
           </button>
+        </div>
+      </div>
+
+      {/* ⭐ REVIEW SLIDER */}
+      <div className="section" id="reviews">
+        <h2>Customer Reviews</h2>
+
+        <div className="review-slider">
+          <div
+            className="review-track"
+            style={{
+              transform: `translateX(-${reviewIndex * 100}%)`,
+            }}
+          >
+            {reviews.map((r, i) => (
+              <div className="review-item" key={i}>
+                <strong>{r.name}</strong>
+                <p>{r.text}</p>
+                <p style={{ color: "gold" }}>★★★★★</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* DOTS */}
+        <div className="dots">
+          {reviews.map((_, i) => (
+            <span
+              key={i}
+              className={i === reviewIndex ? "dot active" : "dot"}
+              onClick={() => setReviewIndex(i)}
+            ></span>
+          ))}
         </div>
       </div>
 
@@ -187,17 +211,17 @@ function App() {
           <p>
             <a
               className="address"
-              href="https://www.google.com/maps?q=Hamburg+Germany"
+              href="https://www.google.com/maps?q=Ahmedabad+India"
               target="_blank"
               rel="noopener noreferrer"
             >
-              📍 Hamburg, Germany
+              📍 Ahmedabad, India
             </a>
           </p>
         </div>
       </div>
 
-      {/* WHATSAPP BUTTON */}
+      {/* WHATSAPP */}
       <a
         href="https://wa.me/918799399742?text=I%20want%20to%20book%20mehndi"
         target="_blank"

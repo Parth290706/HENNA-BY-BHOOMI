@@ -18,51 +18,6 @@ function App() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  // 🔹 REVIEWS (Firebase)
-  const [name, setName] = useState("");
-  const [text, setText] = useState("");
-  const [rating, setRating] = useState(0);
-  const [reviews, setReviews] = useState([]);
-
-  // 🔥 Fetch reviews
-  const fetchReviews = async () => {
-    const querySnapshot = await getDocs(collection(db, "reviews"));
-    const data = [];
-    querySnapshot.forEach((doc) => {
-      data.push(doc.data());
-    });
-    setReviews(data);
-  };
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  // 🔥 Add review
-  const addReview = async () => {
-    if (!name || !text || rating === 0) {
-      alert("Please fill all fields!");
-      return;
-    }
-
-    const newReview = { name, text, rating };
-
-    // 🔥 UI तुरंत update
-    setReviews((prev) => [...prev, newReview]);
-
-    // 🔥 Firebase में save
-    await addDoc(collection(db, "reviews"), newReview);
-
-    // 🔥 FORM CLEAR
-    setName("");
-    setText("");
-    setRating(0);
-  };
-  // 🔥 REFRESH AFTER DELAY
-  setTimeout(() => {
-    fetchReviews();
-  }, 300);
-
   return (
     <div>
       {/* NAVBAR */}
@@ -123,77 +78,46 @@ function App() {
         </div>
       </div>
 
-      {/* REVIEWS */}
-      <div className="section" id="reviews">
-        <h2>Customer Reviews</h2>
-
-        <div className="review-box">
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Your Name"
-          />
-
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Write your review..."
-          ></textarea>
-
-          {/* ⭐ Stars */}
-          <div className="stars">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <span
-                key={star}
-                onClick={() => setRating(star)}
-                style={{
-                  cursor: "pointer",
-                  fontSize: "24px",
-                  color: star <= rating ? "gold" : "gray",
-                }}
-              >
-                ★
-              </span>
-            ))}
-          </div>
-
-          <button
-            onClick={addReview}
-            className="btn"
-            disabled={!name || !text || rating === 0}
-          >
-            Submit Review
-          </button>
-        </div>
-
-        {/* SHOW REVIEWS */}
-        <div>
-          {reviews.map((r, i) => (
-            <div key={i} className="review-item">
-              <strong>{r.name}</strong>
-              <p>{r.text}</p>
-              <p style={{ color: "gold" }}>{"★".repeat(r.rating)}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* CONTACT */}
-      <div className="section" id="contact">
-        <h2>Contact</h2>
-        <div className="contact-box">
-          <p>
-            <a className="address" href="mailto:parthsutariya290706@gmail.com">
-              📧 Email
-            </a>
-          </p>
-          <p>
-            <a className="address" href="tel:+918799399742">
-              📞 Call
-            </a>
-          </p>
-        </div>
-      </div>
+<div className="section" id="contact">
+  <h2>Contact</h2>
+
+  <div className="contact-box">
+
+    {/* 📞 CALL */}
+    <p>
+      <a 
+        className="address" 
+        href="tel:+916353853077"
+      >
+        📞 +91 6353853077
+      </a>
+    </p>
+
+    {/* 📧 EMAIL */}
+    <p>
+      <a 
+        className="address" 
+        href="mailto:parthsutariya290706@gmail.com?subject=Mehndi Booking&body=I want to book mehndi from you"
+      >
+        📧 parthsutariya290706@gmail.com
+      </a>
+    </p>
+
+    {/* 📍 LOCATION */}
+    <p>
+      <a 
+        className="address" 
+        href="https://www.google.com/maps?q=Hamburg+City+Germany"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        📍 Hamburg, Germany
+      </a>
+    </p>
+
+  </div>
+</div>
 
       {/* WHATSAPP */}
       <a href="https://wa.me/918799399742" className="whatsapp">

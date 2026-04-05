@@ -223,7 +223,7 @@ function App() {
 
       {/* WHATSAPP */}
       <a
-        href="https://wa.me/4915756183614?text=I%20want%20to%20book%20mehndi"
+        href="https://wa.me/+49 1575 6183614?text=I%20want%20to%20book%20mehndi"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp"

@@ -113,7 +113,7 @@ function App() {
           </div>
 
           <div className={`card ${category === "home" ? "active" : ""}`} onClick={() => setCategory("home")}>
-            <i class="fa-regular fa-house"></i> Home Service
+            <i class="fa-regular fa-hand-peace"></i> Guest Mehndi
           </div>
         </div>
       </div>

@@ -200,9 +200,7 @@ function App() {
           <p>
             <a
               className="address"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=Bjpanchal89@gmail.com&su=Mehndi%20Booking&body=I%20want%20to%20book%20mehndi%20from%20you"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:Bjpanchal89@gmail.com?subject=Mehndi Booking&body=I want to book mehndi from you"
             >
               <i class="fa-regular fa-envelope"></i> Bjpanchal89@gmail.com
             </a>

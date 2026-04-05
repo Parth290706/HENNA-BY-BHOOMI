@@ -192,7 +192,7 @@ function App() {
 
         <div className="contact-box">
           <p>
-            <a className="address" href="tel:+916353853077">
+            <a className="address" href="tel:+49 1575 618614">
               <i class="fa-solid fa-phone"></i> +49 1575 6183614
             </a>
           </p>

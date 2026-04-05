@@ -65,7 +65,7 @@ function App() {
     <div>
       {/* NAVBAR */}
       <nav>
-        <div>
+        <div className="mid">
           <h2 className="heading-ln-2">Henna by Bhumi</h2>
           <p className="heading-ln-1">Using 100% Organic Mehndi</p>
         </div>
@@ -105,15 +105,15 @@ function App() {
 
         <div className="services">
           <div className={`card ${category === "bridal" ? "active" : ""}`} onClick={() => setCategory("bridal")}>
-            💍 Bridal Mehndi
+            <i class="fa-solid fa-ring"></i> Bridal Mehndi
           </div>
 
           <div className={`card ${category === "party" ? "active" : ""}`} onClick={() => setCategory("party")}>
-            🎉 Party Mehndi
+            <i class="fa-solid fa-champagne-glasses"></i> Party Mehndi
           </div>
 
           <div className={`card ${category === "home" ? "active" : ""}`} onClick={() => setCategory("home")}>
-            🏠 Home Service
+            <i class="fa-regular fa-house"></i> Home Service
           </div>
         </div>
       </div>
@@ -193,29 +193,29 @@ function App() {
         <div className="contact-box">
           <p>
             <a className="address" href="tel:+916353853077">
-              📞 +91 6353853077
+              <i class="fa-solid fa-phone"></i> +49 1575 6183614
             </a>
           </p>
 
           <p>
             <a
               className="address"
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=parthsutariya290706@gmail.com&su=Mehndi%20Booking&body=I%20want%20to%20book%20mehndi%20from%20you"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=Bjpanchal89@gmail.com&su=Mehndi%20Booking&body=I%20want%20to%20book%20mehndi%20from%20you"
               target="_blank"
               rel="noopener noreferrer"
             >
-              📧 parthsutariya290706@gmail.com
+              <i class="fa-regular fa-envelope"></i> Bjpanchal89@gmail.com
             </a>
           </p>
 
           <p>
             <a
               className="address"
-              href="https://www.google.com/maps?q=Ahmedabad+India"
+              href="https://www.google.com/maps/place/Hamburg,+Germany/@53.558572,9.9278215,10z/data=!3m1!4b1!4m6!3m5!1s0x47b161837e1813b9:0x4263df27bd63aa0!8m2!3d53.5488282!4d9.9871703!16zL20vMDNocno?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noopener noreferrer"
             >
-              📍 Ahmedabad, India
+              <i class="fa-solid fa-location-dot"></i> Humberg, Germany
             </a>
           </p>
         </div>
@@ -223,7 +223,7 @@ function App() {
 
       {/* WHATSAPP */}
       <a
-        href="https://wa.me/918799399742?text=I%20want%20to%20book%20mehndi"
+        href="https://wa.me/4915756183614?text=I%20want%20to%20book%20mehndi"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp"

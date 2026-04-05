@@ -23,6 +23,11 @@ nav{
   z-index:1000;
 }
 
+.mid{
+  display:flex;
+  flex-direction:column;
+}
+
 .heading-ln-1{
   color: rgba(255, 217, 0, 0.747);
   font-family: "Playfair Display", serif;
@@ -362,77 +367,11 @@ nav a:hover::after{
 /* MOBILE RESPONSIVE MEDIA QUERY */
 /* ============================= */
 
-/* Small devices (phones) */
+/* ===================================== */
+/* 📱 SMALL DEVICES (PHONES) */
+/* ===================================== */
+
 @media (max-width: 700px) {
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 20px;
-  }
-
-  nav div {
-    margin-top: 10px;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 8px;
-    font-size: 14px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  .btn {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .section {
-    padding: 50px 20px;
-  }
-
-  .section h2 {
-    font-size: 26px;
-  }
-
-  .services {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-  }
-
-  .slider {
-    max-width: 100%;
-  }
-
-  .contact-box {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .whatsapp {
-    height: 45px;
-    width: 45px;
-    font-size: 18px;
-  }
-}
-
-
-/* ===================================== */
-/* VIVO T3 5G OPTIMIZED (360px WIDTH) */
-/* ===================================== */
-
-@media screen and (max-width: 380px) {
 
   body {
     overflow-x: hidden;
@@ -440,79 +379,87 @@ nav a:hover::after{
 
   /* NAVBAR */
   nav {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    padding: 12px 15px;
-  }
-
-  .heading-ln-2 {
-    font-size: 20px;
-    text-align: center;
+    padding: 15px 15px;
+    gap: 8px;
   }
 
   nav div {
+    margin-top: 8px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
-    margin-top: 8px;
   }
 
   nav a {
-    font-size: 13px;
-    margin: 5px;
+    display: inline-block;
+    margin: 6px;
+    font-size: 14px;
+  }
+
+  .heading-ln-2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .heading-ln-1 {
+    font-size: 12px;
+    text-align: center;
   }
 
   /* HERO */
   .hero {
-    height: 85vh; /* better fit for tall screen */
-    padding: 0 10px;
+    height: 90vh;
+    padding: 0 15px;
   }
 
   .hero h1 {
-    font-size: 28px;
+    font-size: 30px;
     line-height: 1.3;
   }
 
   .hero p {
-    font-size: 13px;
+    font-size: 14px;
     margin: 15px 0;
   }
 
   .btn {
     padding: 10px 18px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   /* SECTION */
   .section {
-    padding: 40px 15px;
+    padding: 50px 15px;
   }
 
   .section h2 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   /* SERVICES */
   .services {
     flex-direction: column;
+    align-items: center;
     gap: 15px;
   }
 
   .card {
     width: 100%;
+    max-width: 280px;
     padding: 20px;
     font-size: 14px;
   }
 
-  /* GALLERY */
+  /* SLIDER */
   .slider {
-    width: 100%;
-    border-radius: 12px;
+    max-width: 95%;
   }
 
   .slides img {
-    border-radius: 12px;
+    height: 220px;
+    object-fit: cover;
   }
 
   .prev, .next {
@@ -520,30 +467,139 @@ nav a:hover::after{
     font-size: 14px;
   }
 
+  /* REVIEW */
+  .review-slider {
+    max-width: 90%;
+  }
+
+  .review-item {
+    min-height: 160px;
+    padding: 15px;
+  }
+
+  .review-item strong {
+    font-size: 16px;
+  }
+
+  .review-item p {
+    font-size: 13px;
+  }
+
   /* CONTACT */
   .contact-box {
-    width: 100%;
+    width: 90%;
     padding: 20px;
   }
 
   .contact-box p {
-    font-size: 13px;
+    font-size: 14px;
     word-break: break-word;
+  }
+
+  .address {
+    font-size: 14px;
   }
 
   /* WHATSAPP */
   .whatsapp {
-    height: 42px;
-    width: 42px;
+    height: 45px;
+    width: 45px;
     font-size: 18px;
     bottom: 15px;
     right: 15px;
   }
 }
 
+/* ===================================== */
+/* 🔥 NAVBAR FIX (338px – 700px PERFECT) */
+/* ===================================== */
+
+@media (max-width: 700px) {
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    gap: 10px;
+  }
+
+  /* TOP PART (LOGO + SLOGAN) */
+  nav > div:first-child {
+    text-align: center;
+  }
+
+  .heading-ln-2 {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .heading-ln-1 {
+    font-size: 12px;
+  }
+
+  /* MENU LINKS */
+  nav > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 13px;
+    margin: 0;
+  }
+
+}
 
 /* ===================================== */
-/* EXTRA TALL MOBILE (HEIGHT BASED FIX) */
+/* 📱 VIVO T3 / SMALL WIDTH (360px) */
+/* ===================================== */
+
+@media screen and (max-width: 380px) {
+
+  .hero {
+    height: 85vh;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .section {
+    padding: 40px 12px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .card {
+    padding: 18px;
+    font-size: 13px;
+  }
+
+  .slides img {
+    height: 200px;
+  }
+
+  .review-item {
+    min-height: 150px;
+    padding: 12px;
+  }
+
+  .contact-box {
+    width: 100%;
+  }
+}
+
+
+/* ===================================== */
+/* 📱 EXTRA TALL MOBILE */
 /* ===================================== */
 
 @media screen and (max-width: 380px) and (min-height: 700px) {
@@ -553,7 +609,7 @@ nav a:hover::after{
   }
 
   .hero h1 {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .hero p {
@@ -563,7 +619,7 @@ nav a:hover::after{
 
 
 /* ===================================== */
-/* TOUCH DEVICE OPTIMIZATION */
+/* 👆 TOUCH DEVICE OPTIMIZATION */
 /* ===================================== */
 
 @media (hover: none) and (pointer: coarse) {
@@ -580,5 +636,10 @@ nav a:hover::after{
 
   .slides img:hover {
     transform: none;
+  }
+
+  .review-item:hover {
+    transform: none;
+    box-shadow: none;
   }
 }

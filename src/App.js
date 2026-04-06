@@ -51,7 +51,7 @@ function App() {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, [images]);
+  }, [images.length]);
 
   // 🔁 REVIEW AUTO SLIDER
   useEffect(() => {

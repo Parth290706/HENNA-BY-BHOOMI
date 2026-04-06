@@ -222,6 +222,17 @@ function App() {
               <i class="fa-solid fa-location-dot"></i> Humberg, Germany
             </a>
           </p>
+
+          <p>
+           <a
+             className="address insta"
+             href="https://www.instagram.com/bhumi_bridal.mehndi"
+             target="_blank"
+             rel="noopener noreferrer"
+          >
+             <i className="fa-brands fa-instagram"></i> @bhumi_bridal.mehndi
+    </a>
+  </p>    
         </div>
       </div>
 

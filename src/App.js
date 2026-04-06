@@ -4,12 +4,18 @@ import "./App.css";
 /* 🔥 IMPORT YOUR LOCAL IMAGES */
 import bridal1 from "./components/bridal1.jpeg";
 import bridal2 from "./components/bridal2.jpeg";
+import bridal3 from "./components/bridal3.jpeg";
+import bridal4 from "./components/bridal4.jpeg";
 
 import party1 from "./components/party1.jpeg";
 import party2 from "./components/party2.jpeg";
+import party3 from "./components/party3.jpeg";
+import party4 from "./components/party4.jpeg";
 
 import home1 from "./components/home1.jpeg";
 import home2 from "./components/home2.jpeg";
+import home3 from "./components/home3.jpeg";
+import home4 from "./components/home4.jpeg";
 
 function App() {
   // 🔥 REVIEWS
@@ -30,11 +36,11 @@ function App() {
   const [category, setCategory] = useState("bridal");
 
   // 🔥 LOCAL IMAGES
-  const allImages = {
-    bridal: [bridal1, bridal2],
-    party: [party1, party2],
-    home: [home1, home2],
-  };
+ const allImages = {
+  bridal: [bridal1, bridal2, bridal3, bridal4],
+  party: [party1, party2, party3, party4],
+  home: [home1, home2, home3, home4],
+};
 
   const images = allImages[category];
 

@@ -299,6 +299,46 @@ nav a:hover::after{
   min-height:180px;
 }
 
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.address i {
+  font-size: 18px;
+}
+
+/* 🔥 Hover effect */
+.address:hover {
+  background: #ffb703;
+  color: #000;
+  transform: translateX(5px);
+}
+
+/* 🔥 Instagram special color */
+.insta {
+  background: linear-gradient(45deg, #E1306C, #F77737);
+}
+
+.insta:hover {
+  background: linear-gradient(45deg, #ff0066, #ff9900);
+  color: #fff;
+}
+
 /* TEXT */
 .review-item strong{
   font-size:18px;

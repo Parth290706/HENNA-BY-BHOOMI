@@ -277,7 +277,7 @@ function App() {
               className="btn"
               style={{ backgroundColor: "#E1306C" }}
             >
-              <i class="fa-solid fa-location-dot"></i>@ bhumi_bridal.mehndi
+              <i class="fa-brands fa-instagram"></i> @ bhumi_bridal.mehndi
             </a>
           </p>      
         </div>

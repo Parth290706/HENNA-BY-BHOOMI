@@ -35,14 +35,27 @@ import home6 from "./component/home6.jpeg";
 import home7 from "./component/home7.jpeg";
 
 function App() {
+  // 🔥 REVIEWS
   const reviews = [
-    { name: "Riya Patel", text: "Amazing bridal mehndi design 😍 very detailed work!" },
+    {
+      name: "Riya Patel",
+      text: "Amazing bridal mehndi design 😍 very detailed work!",
+    },
     { name: "Neha Sharma", text: "Very professional and friendly service ❤️" },
-    { name: "Pooja Mehta", text: "Designs are unique and beautiful 👌 highly recommend!" },
+    {
+      name: "Pooja Mehta",
+      text: "Designs are unique and beautiful 👌 highly recommend!",
+    },
     { name: "Kajal Singh", text: "Best mehndi artist in town 💯 loved it!" },
-    { name: "Anjali Verma", text: "Such neat and clean mehndi work 😍 perfect design!" },
+    {
+      name: "Anjali Verma",
+      text: "Such neat and clean mehndi work 😍 perfect design!",
+    },
     { name: "Sneha Gupta", text: "Very fast service and beautiful designs ❤️" },
-    { name: "Priya Desai", text: "Bhumi is very talented 🙌 bridal mehndi was amazing!" },
+    {
+      name: "Priya Desai",
+      text: "Bhumi is very talented 🙌 bridal mehndi was amazing!",
+    },
     { name: "Komal Yadav", text: "Highly recommended 👍 long-lasting mehndi!" },
   ];
 
@@ -53,7 +66,6 @@ function App() {
 
   // 🔥 LOCAL IMAGES
   const allImages = {
-    // FIXED: Changed bridal0 to bridal10
     bridal: [bridal1, bridal2, bridal3, bridal4, bridal5, bridal6, bridal7, bridal8, bridal9, bridal10, bridal11, bridal12, bridal13],
     party: [party1, party2, party3, party4, party5, party6, party7, party8, party9],
     home: [home1, home2, home3, home4, home5, home6, home7],
@@ -65,7 +77,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 2000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -89,7 +101,7 @@ function App() {
       {/* NAVBAR */}
       <nav>
         <div className="mid">
-          <h2 className="heading-ln-2">Mehndi by Bhumi</h2>
+          <h2 className="heading-ln-2">Henna by Bhumi</h2>
           <p className="heading-ln-1">Using 100% Organic Mehndi</p>
         </div>
         <div>
@@ -106,8 +118,18 @@ function App() {
           <h1 className="heading-ln-2">PROFESSIONAL MEHNDI ARTIST</h1>
           <p>Bridal • Party • Arabic Designs</p>
 
-          <div style={{ display: "flex", gap: "15px", marginTop: "15px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="#contact" className="btn">Book Now</a>
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              marginTop: "15px",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <a href="#contact" className="btn">
+              Book Now
+            </a>
 
             <a
               href="https://www.instagram.com/bhumi_bridal.mehndi"
@@ -127,16 +149,25 @@ function App() {
         <h2>Our Services</h2>
 
         <div className="services">
-          <div className={`card ${category === "bridal" ? "active" : ""}`} onClick={() => setCategory("bridal")}>
+          <div
+            className={`card ${category === "bridal" ? "active" : ""}`}
+            onClick={() => setCategory("bridal")}
+          >
             <i class="fa-solid fa-ring"></i> Bridal Mehndi
           </div>
 
-          <div className={`card ${category === "party" ? "active" : ""}`} onClick={() => setCategory("party")}>
+          <div
+            className={`card ${category === "party" ? "active" : ""}`}
+            onClick={() => setCategory("party")}
+          >
             <i class="fa-solid fa-champagne-glasses"></i> Party Mehndi
           </div>
 
-          <div className={`card ${category === "home" ? "active" : ""}`} onClick={() => setCategory("home")}>
-            <i class="fa-regular fa-hand-peace"></i> Guest Mehndi
+          <div
+            className={`card ${category === "home" ? "active" : ""}`}
+            onClick={() => setCategory("home")}
+          >
+            <i class="fa-regular fa-house"></i> Home Service
           </div>
         </div>
       </div>
@@ -167,9 +198,7 @@ function App() {
 
           <button
             className="next"
-            onClick={() =>
-              setIndex((prev) => (prev + 1) % images.length)
-            }
+            onClick={() => setIndex((prev) => (prev + 1) % images.length)}
           >
             ❯
           </button>
@@ -216,7 +245,7 @@ function App() {
         <div className="contact-box">
           <p>
             <a className="address" href="tel:+49 1575 618614">
-              <i class="fa-solid fa-phone"></i> +49 1575 6183614
+              <i className="fa-solid fa-phone"></i> +49 1575 6183614
             </a>
           </p>
 
@@ -239,17 +268,6 @@ function App() {
               <i class="fa-solid fa-location-dot"></i> Humberg, Germany
             </a>
           </p>
-
-          <p>
-           <a
-             className="address insta"
-             href="https://www.instagram.com/bhumi_bridal.mehndi"
-             target="_blank"
-             rel="noopener noreferrer"
-          >
-             <i className="fa-brands fa-instagram"></i> @bhumi_bridal.mehndi
-    </a>
-  </p>    
         </div>
       </div>
 

@@ -6,16 +6,33 @@ import bridal1 from "./components/bridal1.jpeg";
 import bridal2 from "./components/bridal2.jpeg";
 import bridal3 from "./components/bridal3.jpeg";
 import bridal4 from "./components/bridal4.jpeg";
+import bridal5 from "./components/bridal5.jpeg";
+import bridal6 from "./components/bridal6.jpeg";
+import bridal7 from "./components/bridal7.jpeg";
+import bridal8 from "./components/bridal8.jpeg";
+import bridal9 from "./components/bridal9.jpeg";
+import bridal10 from "./components/bridal10.jpeg";
+import bridal11 from "./components/bridal11.jpeg";
+import bridal12 from "./components/bridal12.jpeg";
+import bridal13 from "./components/bridal13.jpeg";
 
 import party1 from "./components/party1.jpeg";
 import party2 from "./components/party2.jpeg";
 import party3 from "./components/party3.jpeg";
 import party4 from "./components/party4.jpeg";
+import party5 from "./components/party5.jpeg";
+import party6 from "./components/party6.jpeg";
+import party7 from "./components/party7.jpeg";
+import party8 from "./components/party8.jpeg";
+import party9 from "./components/party9.jpeg";
 
 import home1 from "./components/home1.jpeg";
 import home2 from "./components/home2.jpeg";
 import home3 from "./components/home3.jpeg";
 import home4 from "./components/home4.jpeg";
+import home5 from "./components/home5.jpeg";
+import home6 from "./components/home6.jpeg";
+import home7 from "./components/home7.jpeg";
 
 function App() {
   // 🔥 REVIEWS
@@ -37,9 +54,9 @@ function App() {
 
   // 🔥 LOCAL IMAGES
  const allImages = {
-  bridal: [bridal1, bridal2, bridal3, bridal4],
-  party: [party1, party2, party3, party4],
-  home: [home1, home2, home3, home4],
+  bridal: [bridal1, bridal2, bridal3, bridal4,bridal5, bridal6, bridal7, bridal8,bridal9, bridal0, bridal11, bridal12,bridal13],
+  party: [party1, party2, party3, party4,party5, party6, party7, party8,party9],
+  home: [home1, home2, home3, home4,home5,home6,home7],
 };
 
   const images = allImages[category];

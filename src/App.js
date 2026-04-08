@@ -268,6 +268,18 @@ function App() {
               <i class="fa-solid fa-location-dot"></i> Humberg, Germany
             </a>
           </p>
+
+          <p>
+            <a
+              href="https://www.instagram.com/bhumi_bridal.mehndi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn"
+              style={{ backgroundColor: "#E1306C" }}
+            >
+              <i class="fa-solid fa-location-dot"></i>@ bhumi_bridal.mehndi
+            </a>
+          </p>      
         </div>
       </div>
 

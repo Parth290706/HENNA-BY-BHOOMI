@@ -2,37 +2,37 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 /* 🔥 IMPORT YOUR LOCAL IMAGES */
-import bridal1 from "./components/bridal1.jpeg";
-import bridal2 from "./components/bridal2.jpeg";
-import bridal3 from "./components/bridal3.jpeg";
-import bridal4 from "./components/bridal4.jpeg";
-import bridal5 from "./components/bridal5.jpeg";
-import bridal6 from "./components/bridal6.jpeg";
-import bridal7 from "./components/bridal7.jpeg";
-import bridal8 from "./components/bridal8.jpeg";
-import bridal9 from "./components/bridal9.jpeg";
-import bridal10 from "./components/bridal10.jpeg";
-import bridal11 from "./components/bridal11.jpeg";
-import bridal12 from "./components/bridal12.jpeg";
-import bridal13 from "./components/bridal13.jpeg";
+import bridal1 from "./component/bridal1.jpeg";
+import bridal2 from "./component/bridal2.jpeg";
+import bridal3 from "./component/bridal3.jpeg";
+import bridal4 from "./component/bridal4.jpeg";
+import bridal5 from "./component/bridal5.jpeg";
+import bridal6 from "./component/bridal6.jpeg";
+import bridal7 from "./component/bridal7.jpeg";
+import bridal8 from "./component/bridal8.jpeg";
+import bridal9 from "./component/bridal9.jpeg";
+import bridal10 from "./component/bridal10.jpeg";
+import bridal11 from "./component/bridal11.jpeg";
+import bridal12 from "./component/bridal12.jpeg";
+import bridal13 from "./component/bridal13.jpeg";
 
-import party1 from "./components/party1.jpeg";
-import party2 from "./components/party2.jpeg";
-import party3 from "./components/party3.jpeg";
-import party4 from "./components/party4.jpeg";
-import party5 from "./components/party5.jpeg";
-import party6 from "./components/party6.jpeg";
-import party7 from "./components/party7.jpeg";
-import party8 from "./components/party8.jpeg";
-import party9 from "./components/party9.jpeg";
+import party1 from "./component/party1.jpeg";
+import party2 from "./component/party2.jpeg";
+import party3 from "./component/party3.jpeg";
+import party4 from "./component/party4.jpeg";
+import party5 from "./component/party5.jpeg";
+import party6 from "./component/party6.jpeg";
+import party7 from "./component/party7.jpeg";
+import party8 from "./component/party8.jpeg";
+import party9 from "./component/party9.jpeg";
 
-import home1 from "./components/home1.jpeg";
-import home2 from "./components/home2.jpeg";
-import home3 from "./components/home3.jpeg";
-import home4 from "./components/home4.jpeg";
-import home5 from "./components/home5.jpeg";
-import home6 from "./components/home6.jpeg";
-import home7 from "./components/home7.jpeg";
+import home1 from "./component/home1.jpeg";
+import home2 from "./component/home2.jpeg";
+import home3 from "./component/home3.jpeg";
+import home4 from "./component/home4.jpeg";
+import home5 from "./component/home5.jpeg";
+import home6 from "./component/home6.jpeg";
+import home7 from "./component/home7.jpeg";
 
 function App() {
   // 🔥 REVIEWS

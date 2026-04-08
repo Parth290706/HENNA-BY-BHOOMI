@@ -35,7 +35,6 @@ import home6 from "./component/home6.jpeg";
 import home7 from "./component/home7.jpeg";
 
 function App() {
-  // 🔥 REVIEWS
   const reviews = [
     { name: "Riya Patel", text: "Amazing bridal mehndi design 😍 very detailed work!" },
     { name: "Neha Sharma", text: "Very professional and friendly service ❤️" },
@@ -53,11 +52,12 @@ function App() {
   const [category, setCategory] = useState("bridal");
 
   // 🔥 LOCAL IMAGES
- const allImages = {
-  bridal: [bridal1, bridal2, bridal3, bridal4,bridal5, bridal6, bridal7, bridal8,bridal9, bridal0, bridal11, bridal12,bridal13],
-  party: [party1, party2, party3, party4,party5, party6, party7, party8,party9],
-  home: [home1, home2, home3, home4,home5,home6,home7],
-};
+  const allImages = {
+    // FIXED: Changed bridal0 to bridal10
+    bridal: [bridal1, bridal2, bridal3, bridal4, bridal5, bridal6, bridal7, bridal8, bridal9, bridal10, bridal11, bridal12, bridal13],
+    party: [party1, party2, party3, party4, party5, party6, party7, party8, party9],
+    home: [home1, home2, home3, home4, home5, home6, home7],
+  };
 
   const images = allImages[category];
 

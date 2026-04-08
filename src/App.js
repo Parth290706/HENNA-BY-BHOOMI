@@ -101,7 +101,7 @@ function App() {
       {/* NAVBAR */}
       <nav>
         <div className="mid">
-          <h2 className="heading-ln-2">Henna by Bhumi</h2>
+          <h2 className="heading-ln-2">Mehndi by Bhumi</h2>
           <p className="heading-ln-1">Using 100% Organic Mehndi</p>
         </div>
         <div>

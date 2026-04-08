@@ -274,7 +274,7 @@ function App() {
               href="https://www.instagram.com/bhumi_bridal.mehndi"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn"
+              className="address"
               style={{ backgroundColor: "#E1306C" }}
             >
               <i class="fa-brands fa-instagram"></i> @ bhumi_bridal.mehndi
